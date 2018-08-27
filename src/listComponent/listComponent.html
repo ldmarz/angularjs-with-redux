@@ -1,0 +1,9 @@
+<div class="row" ng-repeat="row in $ctrl.elements ">
+  <div class="col-sm-1">
+    <button ng-click="$ctrl.goDownIndex()"> <i class="fas fa-arrow-up"></i></button>
+    <button ng-click="$ctrl.goUpIndex()"> <i class="fas fa-arrow-down"></i></button>
+  </div>
+  <div class="col-sm-11 item" ng-class="{isActive: row.isActive}">
+    {{row.trivia}}
+  </div>
+</div>
