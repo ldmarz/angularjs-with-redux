@@ -14,7 +14,6 @@ export default function listReducer(state = initialState, action) {
     case GOUP:
       state.currentActive++
       state.currentActive = Math.min(state.currentActive, state.elements.length);
-      console.log(state.currentActive);
       return state;
     case ELEMENTS:
       state.elements = action.elements;

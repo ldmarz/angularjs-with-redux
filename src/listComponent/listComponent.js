@@ -14,18 +14,16 @@ class listComponentController {
   }
 
   mapStateToThis(state) {
-    console.log(state);
     return {
       currentActive: state.listReducer.currentActive
     };
   }
 
   goUpIndex() {
-    this.removeActive(this.currentActive);
+    this.removeActiveClass(this.currentActive);
     this.$ngRedux.dispatch({ type: GOUP});
-    // this.currentActive++;
-    // this.currentActive = Math.min(this.currentActive, this.elements.length);
-    this.setActive(this.currentActive);
+
+    this.setActiveClass(this.currentActive);
   }
 
   setElements(elements) {
@@ -33,16 +31,16 @@ class listComponentController {
   }
 
   goDownIndex() {
-    this.removeActive(this.currentActive);
+    this.removeActiveClass(this.currentActive);
     this.$ngRedux.dispatch({ type: GODOWN });
-    this.setActive(this.currentActive);
+    this.setActiveClass(this.currentActive);
   }
 
-  removeActive(index) {
+  removeActiveClass(index) {
     _.set(this.elements, `${index}.isActive`, false);
   }
 
-  setActive(index) {
+  setActiveClass(index) {
     _.set(this.elements, `${index}.isActive`, true);
   }
 
